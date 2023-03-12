@@ -66,11 +66,13 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.WriteLine("==== Table Driven ====")
         getKode kodepos = new getKode();
         Kelurahan daerah = Kelurahan.Margasari;
         int kode = getKode.getKodePos(daerah);
         Console.WriteLine(kode);
 
+        Console.WriteLine("==== State-based ====")
         DoorMachine door = new DoorMachine();
         door.OpenDoor();
         door.CloseDoor();
