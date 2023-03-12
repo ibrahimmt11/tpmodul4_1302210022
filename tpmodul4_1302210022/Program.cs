@@ -27,6 +27,41 @@ public class KodePos
    
 }
 
+public class DoorMachine
+{
+    enum State
+    {
+        Terkunci,
+        Terbuka
+    }
+
+    State kondisi;
+
+    public DoorMachine()
+    {
+        kondisi = State.Terkunci;
+        Console.WriteLine("Pintu Terkunci");
+    }
+
+    public void OpenDoor()
+    {
+        if(kondisi == State.Terkunci)
+        {
+            kondisi = State.Terbuka;
+            Console.WriteLine("Pintu tidak terkunci");
+        }
+    }
+
+    public void CloseDoor()
+    {
+        if(kondisi == State.Terbuka)
+        {
+            kondisi = State.Terkunci;
+            Console.WriteLine("Pintu terkunci");
+        }
+    }
+}
+
 class Program
 {
     static void Main(string[] args)
@@ -35,5 +70,9 @@ class Program
         Kelurahan daerah = Kelurahan.Margasari;
         int kode = getKode.getKodePos(daerah);
         Console.WriteLine(kode);
+
+        DoorMachine door = new DoorMachine();
+        door.OpenDoor();
+        door.CloseDoor();
     }
 }
